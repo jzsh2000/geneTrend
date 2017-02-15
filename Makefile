@@ -1,23 +1,23 @@
 doc: report/eda.html
-rds: data/summary/gene_pubmed.rds
+rds: data/9606/summary/gene_pubmed.rds
 
-report/eda.html: report/eda.Rmd data/summary/gene_pubmed.rds data/pubmed/dc.pmid
+report/eda.html: report/eda.Rmd data/9606/summary/gene_pubmed.rds data/9606/pubmed/dc.pmid
 	R ${R_OPTS} -e "rmarkdown::render('report/eda.Rmd')"
-data/summary/gene_pubmed.rds: data/summary/geneNames.txt \
-                              data/summary/pubmedDate.txt \
-                              data/summary/geneToPubmed.txt
-	script/genRDS.R
-data/summary/geneNames.txt: data/gene/geneList.txt
-	script/genGeneNames.sh
-data/summary/pubmedDate.txt: data/pubmed/gene.pmid data/pubmed/gene.pmdate
-	script/genPubmedDate.sh
-data/summary/geneToPubmed.txt: data/pubmed/gene.pmid
-	script/genGeneToPubmed.sh
-data/pubmed/gene.pmdate: data/pubmed/gene.pmid
-	script/getArticleInfo.sh
-data/pubmed/dc.pmid:
+data/dc.pmid:
 	script/searchDendriticCell.sh
-data/pubmed/gene.pmid: data/gene/geneList.txt
+data/9606/summary/gene_pubmed.rds: data/9606/summary/geneNames.txt \
+                                   data/9606/summary/pubmedDate.txt \
+                                   data/9606/summary/geneToPubmed.txt
+	script/genRDS.R
+data/9606/summary/geneNames.txt: data/9606/gene/geneList.txt
+	script/genGeneNames.sh
+data/9606/summary/pubmedDate.txt: data/9606/pubmed/gene.pmid data/9606/pubmed/gene.pmdate
+	script/genPubmedDate.sh
+data/9606/summary/geneToPubmed.txt: data/9606/pubmed/gene.pmid
+	script/genGeneToPubmed.sh
+data/9606/pubmed/gene.pmdate: data/9606/pubmed/gene.pmid
+	script/getArticleInfo.sh
+data/9606/pubmed/gene.pmid: data/9606/gene/geneList.txt
 	script/linkGeneToPubmed.sh
-data/gene/geneList.txt:
+data/9606/gene/geneList.txt:
 	script/getGeneList.sh
