@@ -1,3 +1,5 @@
 *.dat
 *.dat.gz
 .Rproj.user
+.RData
+.Rhistory
