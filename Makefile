@@ -11,6 +11,8 @@ data/9606/summary/gene_pubmed.rds: data/9606/summary/geneNames.txt \
 	script/genRDS.R
 data/9606/summary/geneNames.txt: data/9606/gene/geneList.txt
 	script/genGeneNames.sh
+data/9606/gene/geneName.txt: data/9606/gene/geneList.txt
+	script/getGeneInfo.sh
 data/9606/summary/pubmedDate.txt: data/9606/pubmed/gene.pmid data/9606/pubmed/gene.pmdate
 	script/genPubmedDate.sh
 data/9606/summary/geneToPubmed.txt: data/9606/pubmed/gene.pmid
