@@ -8,7 +8,7 @@ data/geneToPubmed.txt: data/pubmed/gene.pmid
 	script/genGeneToPubmed.sh
 data/pubmed/gene.pmdate: data/pubmed/gene.pmid
 	script/getArticleInfo.sh
-data/pubmed/gene.pmid: data/geneList.txt
+data/pubmed/gene.pmid: data/gene/geneList.txt
 	script/linkGeneToPubmed.sh
-data/geneList.txt:
+data/gene/geneList.txt:
 	script/getGeneList.sh
