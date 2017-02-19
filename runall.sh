@@ -15,12 +15,13 @@ else
 fi
 
 script/getGeneList.sh $txid
-script/linkGeneToPubmed.sh $txid
-script/getArticleInfo.sh $txid
-script/genGeneToPubmed.sh $txid
-script/genPubmedDate.sh $txid
 script/getGeneInfo.sh $txid
 script/genGeneNames.sh $txid
+script/linkGeneToPubmed.sh $txid
+script/collectPmid.sh $txid
+script/genGeneToPubmed.sh $txid
+script/getArticleInfo.sh $txid
+script/genPubmedDate.sh $txid
 script/genRDS.R $txid
 
 export gene_pubmed=$(realpath data/$txid/summary/gene_pubmed.rds)
